@@ -1,17 +1,16 @@
 <div align="center">
-<a href="https://v1.1anime.one">
-  <img src="/1xsky.png" alt="logo" width="180"/>
+<a href="https://skyanime.site">
+  <img src="https://raw.githubusercontent.com/animeduniya/temp-update/main/public/icon.png" alt="logo" />
 </a>
 </div>
 
 <h1 align="center">
-  <a href="https://v1.1anime.one">SkyAnime X 1Anime</a>
+  <a href="https://skyanime.site">1Anime X SkyAnime</a>
 </h1>
 <h2 align="center"><a href="https://github.com/Noname968/airin">A permitted and official fork of Airin</a></h2>
 
 > [!IMPORTANT]  
 >  
-> As of August 24 2024, this repository is no longer maintained and will not receive any further updates or support from the author. If you choose to use the code in this repository, please do so at your own risk.
 > ### Important Points:
 > - **Don't use this code for commercial use**: Read the LICENSE for more.
 > - **No Updates**: There will be no further updates or improvements made to this repository.
@@ -23,27 +22,27 @@
 
 <p align="center">
 
- <a href="https://github.com/1Anime/V1/blob/main/LICENSE">
+ <a href="[https://github.com/1Anime/V1/blob/main/LICENSE](https://github.com/itsdarkdevil/1anime-x-skyanime-remake/blob/main/LICENSE)">
     <img src="https://img.shields.io/github/license/1Anime/V1" alt="license"/>
   </a>
-  <a href="https://github.com/1Anime/V1/fork">
+  <a href="https://github.com/itsdarkdevil/1anime-x-skyanime-remake/fork">
     <img src="https://img.shields.io/github/forks/1Anime/V1?style=social" alt="fork"/>
   </a>
-  <a href="https://github.com/1Anime/V1">
+  <a href="https://github.com/itsdarkdevil/1anime-x-skyanime-remake">
     <img src="https://img.shields.io/github/stars/1Anime/V1?style=social" alt="stars"/>
   </a>
   
 </p>
 
 <p align="center">
- <img src="https://github.com/1Anime/V1/blob/main/public/image.png?raw=true" alt="main">
+ <img src="https://github.com/itsdarkdevil/1anime-x-skyanime-remake/blob/main/public/image_2025-05-13_183814238.png?raw=true" alt="main">
 </p>
 
 > **Warning:** If you are not familiar with JavaScript or any other programming language related to this project, please learn it first before attempting to work on this project. **I won't help anyone who doesn't know how to do basic stuff.**
 
 ## Introduction
 
-<p><a href="https://v1.1anime.one">1Anime</a> is an anime streaming website made possible by the <a href="https://github.com/consumet">Consumet API</a> and <a href="https://anify.tv">Anify API</a>, built with <a href="https://github.com/vercel/next.js/">Next.js</a> and <a href="https://nextui.org/">Nextui</a>, It offers AniList integration with no ads or interruptions</p>
+<p><a href="https://skyanime.site">1Anime</a> is an anime streaming website made possible by the <a href="https://github.com/consumet">Consumet API</a> and <a href="https://anify.tv">Anify API</a>, built with <a href="https://github.com/vercel/next.js/">Next.js</a> and <a href="https://nextui.org/">Nextui</a>, It offers AniList integration with no ads or interruptions</p>
 
 ## Features
 
@@ -71,7 +70,7 @@
 1. Clone this repository using :
 
 ```bash
-git clone https://github.com/1Anime/V1.git
+git clone https://github.com/itsdarkdevil/1anime-x-skyanime-remake.git
 ```
 
 2. Install package using npm :
@@ -142,10 +141,9 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 > This means that if you choose to use or host this site for your own purposes, you are also required to release the source code of any modifications or improvements you make to this project. This open-source ethos is central to the project's philosophy.
 
 ## Contact
-[![Discord Banner](https://discord.com/api/guilds/1241662958082330714/widget.png?style=banner2)](https://discord.gg/7x8bKaY9eP)
+[![Discord Banner](https://raw.githubusercontent.com/animeduniya/temp-update/main/public/icon.png
+?style=banner2)](https://discord.gg/6kKSbDxjTR)
 
 ## Support This Project
 
-✨ [Star this project](https://github.com/1Anime/V1)
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/1anime)  
+✨ [Star this project](https://github.com/itsdarkdevil/1anime-x-skyanime-remake)
