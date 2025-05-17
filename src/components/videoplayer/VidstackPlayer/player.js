@@ -31,6 +31,12 @@ function Player({ dataInfo, id, groupedEp, src, session, savedep, subtitles, thu
   const [getVideoProgress, UpdateVideoProgress] = VideoProgressSave();
   const router = useRouter();
 
+  // Prepare clean source URL for casting
+  const cleanSrc = typeof src === 'string' ? src.replace('https://cors-anywhere-livid-six.vercel.app/', '')
+                                                .replace('https://m3u8-proxy.xdsystemspotify.workers.dev/?url=', '')
+                                                .replace('https://newproxy-chi.vercel.app/m3u8-proxy?url=', '')
+                                           : src;
+
   const playerRef = useRef(null);
   const { duration, fullscreen } = useMediaStore(playerRef);
   const remote = useMediaRemote(playerRef);
@@ -230,7 +236,13 @@ function Player({ dataInfo, id, groupedEp, src, session, savedep, subtitles, thu
 
 
   return (
-    <MediaPlayer key={src} ref={playerRef} playsInline aspectRatio={16 / 9} load={settings?.load || 'idle'} muted={settings?.audio || false}
+    <MediaPlayer 
+      key={cleanSrc} 
+      ref={playerRef} 
+      playsInline 
+      aspectRatio={16 / 9} 
+      load={settings?.load || 'idle'} 
+      muted={settings?.audio || false}
       autoPlay={settings?.autoplay || false}
       title={currentep?.title || `EP ${epNum}` || 'Loading...'}
       className={`${styles.player} player relative`}
@@ -240,14 +252,17 @@ function Player({ dataInfo, id, groupedEp, src, session, savedep, subtitles, thu
       onEnded={onEnded}
       onCanPlay={onCanPlay}
       src={{
-        src: src,
+        src: cleanSrc,
         type: "application/x-mpegurl",
+        // Add poster image for cast devices
+        poster: dataInfo?.coverImage?.extraLarge || dataInfo?.bannerImage || '',
       }}
       onPlay={onPlay}
       onPause={onPause}
       onLoadedMetadata={onLoadedMetadata}
       onTimeUpdate={onTimeUpdate}
       onSourceChange={onSourceChange}
+      castButton="auto"
     >
       <MediaProvider>
         {subtitles && subtitles?.map((track) => (

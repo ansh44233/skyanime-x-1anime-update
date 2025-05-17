@@ -125,7 +125,10 @@ function Navbarcomponent({ home = false }) {
                 <div className={styles.logoContainer}>
                     <Link href="/" className={styles.logoLink}>
                         {/* ANIPLAY */}
-                        <Image src='https://1anime.co/logo.svg' width={50} height={50} className="w-32 h-20 "/>
+                        <div className="relative group">
+                            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-500 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                            <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-500 relative transform transition-transform duration-300 hover:scale-110 py-2 px-4">SkyAnime X 1Anime</h1>
+                        </div>
                     </Link>
                 </div>
                 <div className={styles.navItemsContainer}>

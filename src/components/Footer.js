@@ -38,10 +38,13 @@ function Footer() {
                                 {/* <p className={`aniplay self-center text-3xl font-medium whitespace-nowrap dark:text-white`}>
                                     ANIPLAY
                                     </p> */}
-                                    <Image src='https://1anime.co/logo.svg' width={50} height={50} className="w-32 h-20 "/>
+                                <div className="relative group">
+                                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-500 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                                    <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-500 relative transform transition-transform duration-300 hover:scale-110 py-2 px-4">SkyAnime X 1Anime</h1>
+                                </div>
                             </Link>
-                            <button className="bg-black text-white font-medium py-2 px-3 rounded-lg">
-           🟡 Status: GGAnime API (Main Server) down
+                            <button className="bg-gradient-to-r from-purple-800 to-indigo-900 text-white font-medium py-2 px-3 rounded-lg shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
+           🟢 Status: GGAnime API (Main Server) UP
           </button>
                             <p className="lg:text-[0.8rem] text-[0.7rem] text-[#ffffffb2] lg:w-[480px]">
                                 This site does not store any files on our server, we are linked
@@ -91,7 +94,7 @@ function Footer() {
                 </div>
                 <div className='bg-tersier border-t border-white/5 mt-2'></div>
                 <div className="mx-auto w-full lg:max-w-[83%] lg:flex lg:items-center lg:justify-between lg:text-[0.8rem] text-[0.7rem] text-[#ffffffb2] py-3">
-                    <span className="sm:text-center ms-5 lg:ms-0">© {year} <Link href="/" className="hover:text-white">1Anime</Link> | <span className="font-bold" >Aniplay + 1Anime Development Team</span>
+                    <span className="sm:text-center ms-5 lg:ms-0">© {year} <Link href="/" className="hover:text-white">SkyAnime X 1Anime</Link> | <span className="font-bold" >SkyAnime X 1Anime Development Team</span>
                     </span></div></footer>
         </div>
     )

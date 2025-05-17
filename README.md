@@ -1,11 +1,11 @@
 <div align="center">
 <a href="https://v1.1anime.one">
-  <img src="https://1anime.co/favicon.ico" alt="logo" width="180"/>
+  <img src="/1xsky.png" alt="logo" width="180"/>
 </a>
 </div>
 
 <h1 align="center">
-  <a href="https://v1.1anime.one">1Anime V1</a>
+  <a href="https://v1.1anime.one">SkyAnime X 1Anime</a>
 </h1>
 <h2 align="center"><a href="https://github.com/Noname968/airin">A permitted and official fork of Airin</a></h2>
 

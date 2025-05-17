@@ -17,13 +17,19 @@ function VidstackPlayer({ data, sources, skiptimes, epid, thumbnails, subtitles,
     const sourceWithDefaultQuality = sources?.find(source => source?.quality === defaultQuality);
     const selectedSource = sourceWithDefaultQuality || sources?.find(source => fallbackQualities?.includes(source.quality));
 
-    const [src, setSrc] = useState(selectedSource?.url || '');
+    const [hlsSrc, setHlsSrc] = useState(() => {
+        const url = selectedSource?.url || '';
+        return url.replace('https://cors-anywhere-livid-six.vercel.app/', '')
+                  .replace('https://m3u8-proxy.xdsystemspotify.workers.dev/?url=', '')
+                  .replace('https://gogoanime-and-hianime-proxy-ten.vercel.app/m3u8-proxy?url=', '');
+    });
+    
     const [opbutton, setopbutton] = useState(false);
     const [edbutton, setedbutton] = useState(false);
     const [autoSkip, setAutoSkip] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
     let interval;
-    let autoNext = true
+    let autoNext = true;
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -182,43 +188,52 @@ function VidstackPlayer({ data, sources, skiptimes, epid, thumbnails, subtitles,
     }
 
     return (
-        <MediaPlayer key={sources} ref={playerRef} playsinline aspectRatio={16 / 9} load={settings?.load || 'idle'} muted={settings?.audio || false}
-        autoFocus={true} autoplay={settings?.autoplay || false} title={currentep?.title || `EP ${currentep?.number}`}
+        <MediaPlayer 
+            key={hlsSrc} 
+            ref={playerRef} 
+            playsinline 
+            aspectRatio={16 / 9} 
+            load={settings?.load || 'idle'} 
+            muted={!settings?.audio}
+            autoFocus={true} 
+            autoplay={settings?.autoplay || false} 
+            title={currentep?.title || `EP ${currentep?.number}`}
             data-hocus="true"
-            className={`w-full h-full overflow-hidden cursor-pointer rounded-lg ${styles.mediaplayer}`}
+            className={`w-full h-full overflow-hidden cursor-pointer rounded-lg shadow-[0_0_25px_rgba(100,181,246,0.3)] ${styles.mediaplayer}`}
             crossorigin={"anonymous"}
             streamType="on-demand"
             onEnd={onEnd}
             onEnded={onEnded}
             onCanPlay={onCanPlay}
             src={{
-                src: src,
+                src: hlsSrc,
                 type: "application/x-mpegurl",
+                poster: data?.coverImage?.extraLarge || data?.bannerImage || '',
             }}
             onPlay={onPlay}
             onPause={onPause}
             onLoadedMetadata={onLoadedMetadata}
-        // onTimeUpdate={onTimeUpdate}
+            castButton="auto"
         >
             <div className={styles.bigplaycontainer}>
                 <PlayButton className={styles.vdsbutton}>
-                    <span className="backdrop-blur-sm scale-[160%] absolute duration-200 ease-out flex shadow bg-white/10 rounded-full transform -translate-x-1/2 -translate-y-1/2 cursor-pointer">
+                    <span className="backdrop-blur-sm scale-[160%] absolute duration-200 ease-out flex shadow bg-white/10 rounded-full transform -translate-x-1/2 -translate-y-1/2 cursor-pointer hover:scale-[170%] hover:bg-[#64B5F6]/20 transition-all">
                         <svg className="w-7 h-7 m-2" viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M10.6667 6.6548C10.6667 6.10764 11.2894 5.79346 11.7295 6.11862L24.377 15.4634C24.7377 15.7298 24.7377 16.2692 24.3771 16.5357L11.7295 25.8813C11.2895 26.2065 10.6667 25.8923 10.6667 25.3451L10.6667 6.6548Z" fill="currentColor"></path></svg>
                     </span>
                 </PlayButton>
             </div>
             <MediaProvider>
-            {subtitles && subtitles?.map((track) => (
-            <Track {...track} key={track.src} />
-          ))}
+                {subtitles && subtitles?.map((track) => (
+                    <Track {...track} key={track.src} />
+                ))}
             </MediaProvider>
             <Gesture className="vds-gesture" event="pointerup" action="toggle:paused" />
             <Gesture className="vds-gesture" event="pointerup" action="toggle:controls" />
             <Gesture className="vds-gesture" event="dblpointerup" action="seek:-5" />
             <Gesture className="vds-gesture" event="dblpointerup" action="seek:5" />
             <Gesture className="vds-gesture" event="dblpointerup" action="toggle:fullscreen" />
-            {opbutton && <button onClick={handleop} className='absolute bottom-[83px] right-4 z-[80] bg-white text-black py-2 px-3 rounded-[8px] font-medium'>Skip Opening</button>}
-            {edbutton && <button onClick={handleed} className='absolute bottom-[83px] right-4 z-[80] bg-white text-black py-2 px-3 rounded-[8px] font-medium'>Skip Ending</button>}
+            {opbutton && <button onClick={handleop} className='absolute bottom-[83px] right-4 z-[80] bg-gradient-to-r from-[#1A237E] to-[#64B5F6] text-white py-2 px-4 rounded-[8px] font-medium shadow-lg hover:shadow-[0_0_15px_rgba(100,181,246,0.5)] transition-all duration-300'>Skip Opening</button>}
+            {edbutton && <button onClick={handleed} className='absolute bottom-[83px] right-4 z-[80] bg-gradient-to-r from-[#1A237E] to-[#64B5F6] text-white py-2 px-4 rounded-[8px] font-medium shadow-lg hover:shadow-[0_0_15px_rgba(100,181,246,0.5)] transition-all duration-300'>Skip Ending</button>}
             <DefaultVideoLayout icons={defaultLayoutIcons} thumbnails={thumbnails ? `https://cors-anywhere-livid-six.vercel.app/` + thumbnails[0]?.url : ""} />
         </MediaPlayer>
     )

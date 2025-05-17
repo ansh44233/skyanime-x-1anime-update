@@ -1,10 +1,18 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind directives */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 /*
 @font-face {
     font-family: "Archivo";
-    src: url('https://1anime.co/archivo.ttf');
+    src: url('/archivo.ttf');
+}
+
+/* Epic animation effects */
+@keyframes glow {
+    0% { text-shadow: 0 0 5px rgba(102, 0, 255, 0.5), 0 0 10px rgba(102, 0, 255, 0.3); }
+    50% { text-shadow: 0 0 20px rgba(102, 0, 255, 0.8), 0 0 30px rgba(102, 0, 255, 0.5); }
+    100% { text-shadow: 0 0 5px rgba(102, 0, 255, 0.5), 0 0 10px rgba(102, 0, 255, 0.3); }
 }
 
 .aniplay{
@@ -14,7 +22,31 @@
 html {
      scroll-behavior: smooth !important; 
     letter-spacing:0.05rem;
+    background: linear-gradient(135deg, #13151a 0%, #090a0f 100%);
    }
+
+/* Add epic styling to headings */
+h1, h2, h3 {
+    font-weight: 700;
+    animation: glow 3s infinite;
+}
+
+/* Add subtle hover effects to links */
+a:hover {
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+/* Add card hover effects */
+.card, .anime-card, [class*="card"] {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover, .anime-card:hover, [class*="card"]:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(102, 0, 255, 0.3);
+}
 
 ::-webkit-scrollbar {
     width: 6px;
@@ -22,11 +54,13 @@ html {
 
 ::-webkit-scrollbar-thumb{
     border-radius: 4px;
-    background-color: #767676;
+    background-color: #9d4edd;
+    background-image: linear-gradient(45deg, #9d4edd, #6a0dad);
 }
 
 ::-webkit-scrollbar-track{
-    background-color: rgb(60, 26, 60);
+    background-color: rgba(20, 20, 30, 0.8);
+    border-radius: 4px;
 }
 
 .recommendationglobal{
